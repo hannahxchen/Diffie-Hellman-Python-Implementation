@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+  <!--
+        ********************************************************
+        CDA Header
+        ********************************************************
+  -->
+  <typeId extension="POCD_HD000040"  root="2.16.840.1.113883.1.3" />
+  <templateId extension="121" root="2.16.886.101.20003.20014" />
+  <!--系統產生唯一編碼
+        1. 每產生一份文件都需指定新的OID。
+        2. 若以台大醫院為例，台大醫院之OID為2.16.886.111.100000.100000。
+  -->
+  <id extension="201009040001" root="2.16.886.111.100000.100000" />
+  <!--表示本文件為門診病歷-->
+  <code code="28579-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Visit note" />
+  <title>門診病歷</title>
+  <!-- 文件列印日期 格式為 : YYYY[MM[DD[HH[MM]]]]  西元年月日時分-->
+  <effectiveTime value="201009041506" />
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" codeSystemName="Confidentiality"  displayName="normal" />
+  <!-- 語言碼 -->
+  <languageCode code="zh-TW" />
+  <!-- 本文件之病患資料 -->
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole classCode="PAT">
+      <!--4. 病歷號碼
+            @extension : 在該院之病歷號
+            @root : 該院之OID
+      -->
+      <id extension="123456" root="2.16.886.111.100000.100000" />
+      <!-- 病患基本資料 -->
+      <patient classCode="PSN" determinerCode="INSTANCE">
+      <!--3. 身分證號
+               @extension : 此病患之身分證號
+               @root : 2.16.886.101.20003.20001(內政部)
+			若使用居留證號碼，@root : 2.16.886.101.20003.20001(內政部)
+			若使用護照號碼，@root : 發給護照號碼機構之OID
+         -->
+      <id extension="Z123456789" root="2.16.886.101.20003.20001" />
+        <!--5 姓名-->
+        <name>趙錢孫</name>
+        <!--6. 性別
+               @code : 性別代碼
+               @codeSystem : 2.16.840.1.113883.5.1 (HL7 Vocabulary OID)
+         -->
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" codeSystemName="AdministrativeGender" displayName="Male"/>
+        <!--7. 出生日期-->
+        <birthTime value="20000101" />
+      </patient>
+      <!--醫事機構 
+            @extension : 醫事機構代碼
+            @root : 2.16.886.101.20003.20014
+      -->
+      <providerOrganization classCode="ORG" determinerCode="INSTANCE">
+        <!--1. 醫事機構代碼-->
+        <id extension="0401190010" root="2.16.886.101.20003.20014" />
+        <!--2. 醫事機構名稱-->
+        <name>臺大醫院</name>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  <!-- author1 -->
+  <author typeCode="AUT" contextControlCode="OP">
+    <!--醫師紀錄日期時間-->
+    <time value="201009041200" />
+    <assignedAuthor classCode="ASSIGNED">
+      <!--醫師醫院代碼-->
+      <id extension="KP00017" root="2.16.886.111.100000.100000" />
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+        <!--46. 醫師姓名-->
+        <name>賴一施</name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  <!-- 本文件保管單位 -->
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <!--1. 醫事機構代碼-->
+        <id extension="0401190010" root="2.16.886.101.20003.20014" />
+        <!--2. 醫事機構名稱-->
+        <name>臺大醫院</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <componentOf typeCode="COMP">
+    <encompassingEncounter classCode="ENC" moodCode="EVN">
+      <!--8. 門診日期-->
+      <effectiveTime value="20100810" />
+      <location typeCode="LOC">
+        <healthCareFacility classCode="SDLOC">
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <!--9. 科別-->
+            <name>家醫科</name>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <!--
+        ********************************************************
+        CDA Body Level 2 
+        ********************************************************
+  -->
+  <component typeCode="COMP" contextConductionInd="true">
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+<!--
+        實驗室檢查紀錄
+        ********************************************************
+        Reference lab test results
+        ********************************************************
+      -->
+     <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="19146-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Reference lab test results" />
+          <title>實驗室檢查紀錄</title>
+          <text>病人血型及D抗原性</text>
+<component typeCode="COMP" contextConductionInd="true">
+           <section classCode="DOCSECT" moodCode="EVN">
+            <code code="883-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName=" ABO group " />
+            <title>血型</title>
+            <text>
+<paragraph>B，病人自述</paragraph>
+</text>
+</section>
+</component>
+<component typeCode="COMP" contextConductionInd="true">
+          <section classCode="DOCSECT" moodCode="EVN">
+            <code code="10331-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName=" Rh" />
+            <title>D抗原性</title>
+            <text>
+<paragraph>Rh+</paragraph>
+</text>
+</section>
+</component>
+        </section>
+      </component>
+<!--
+        重大傷病
+        ********************************************************
+        History of major illnesses and injuries
+        ********************************************************
+      -->
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="11338-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of major illnesses and injuries" />
+          <title>重大傷病</title>
+          <!-- 10 重大傷病 -->
+<text>
+           <paragraph>284 APLASTIC ANEMIAS 再生不良性貧血</paragraph>
+<paragraph>446.2 HYPERSENSITIVITY VASCULITIS 過敏性血管炎</paragraph>
+          </text>
+          <entry>
+            <observation classCode="COND" moodCode="EVN" negationInd="false">
+              <code code="284" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健康保險重大傷病範圍" displayName="APLASTIC ANEMIAS 再生不良性貧血"/>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="COND" moodCode="EVN" negationInd="false">
+              <code code="446.2" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健康保險重大傷病範圍" displayName=" HYPERSENSITIVITY VASCULITIS 過敏性血管炎"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!--
+        過敏史
+        ********************************************************
+        History of allergies
+        ********************************************************
+      -->
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="10155-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of allergies" />
+          <title>過敏史</title>
+          <text>
+            <paragraph>no allergies</paragraph>
+         </text>
+        </section>
+      </component>
+      <!--
+        病人生活史
+        ********************************************************
+        Social history
+        ********************************************************
+      -->
+     <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Social history" />
+          <title>病人生活史</title>
+          <text>就診年齡、職業及就醫身分別</text>
+<component typeCode="COMP" contextConductionInd="true">
+            <section classCode="DOCSECT" moodCode="EVN">
+              <code code="29553-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Age" />
+              <title>就診年齡</title>
+              <text>
+<paragraph>30歲5個月</paragraph>
+</text>
+</section>
+</component>
+<component typeCode="COMP" contextConductionInd="true">
+            <section classCode="DOCSECT" moodCode="EVN">
+              <code code="21847-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Usual occupation" />
+              <title>職業</title>
+              <text>
+<paragraph>服務業/一般職員</paragraph>
+</text>
+</section>
+</component>
+<component typeCode="COMP" contextConductionInd="true">
+            <section classCode="DOCSECT" moodCode="EVN">
+             <code code="63513-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Are you covered by health insurance or some other kind of health care plan"/>
+             <title>就醫身分別</title>
+             <text>
+<paragraph>健保</paragraph>
+</text>
+</section>
+</component>
+        </section>
+      </component>
+      <!--
+        診斷
+        ********************************************************
+        Diagnosis
+        ********************************************************
+      -->
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="29548-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Diagnosis" />
+          <title>診斷</title>
+          <text>
+            <paragraph>011 Tuberculosis 肺結核 註記1</paragraph>
+            <paragraph>487 Influenza 流行性感冒 註記2</paragraph>
+          </text>
+<entry>
+            <observation classCode="COND" moodCode="EVN">
+              <code code="011" codeSystem="2.16.840.1.113883.6.2" codeSystemName="ICD9CM" displayName="Tuberculosis 肺結核">
+</code>
+<text>註記1</text>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="COND" moodCode="EVN">
+              <code code="487" codeSystem="2.16.840.1.113883.6.2" codeSystemName="ICD9CM" displayName="Influenza 流行性感冒">
+</code>
+<text>註記2</text>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <!--
+        病情摘要
+        ********************************************************
+        Return visit conditions
+        ********************************************************
+      -->
+     <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="19824-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Return visit conditions" />
+          <title>病情摘要</title>
+          <text>主觀描述、客觀描述及評估</text>
+<component typeCode="COMP" contextConductionInd="true">
+          <section classCode="DOCSECT" moodCode="EVN">
+            <code code="61150-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Subjective" />
+            <title>主觀描述</title>
+            <text>
+<paragraph>stable now and no complaint，report normal home BP；</paragraph>
+<paragraph>ever increased BP noted for weeks，no DOE，no chest pain，no syncope；</paragraph>
+<paragraph>no PND，no orthopnea</paragraph>
+</text>
+</section>
+</component>
+<component typeCode="COMP" contextConductionInd="true">
+          <section classCode="DOCSECT" moodCode="EVN">
+            <code code="61149-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Objective" />
+            <title>客觀描述</title>
+            <text>
+<paragraph>BP：148/70 mmHg，  HR：66/min</paragraph>
+<paragraph>PE：pale conjunctiva-，icteric sclera-； JVE- ， carotid bruits-，goiter-；clear bs，no rales，no wheezing；RHB，soft SM，Peripheral pulses：++，pitting edema-</paragraph>
+ <paragraph>Previous CXR：no cardiomegaly</paragraph>
+</text>
+</section>
+</component>
+<component typeCode="COMP" contextConductionInd="true">
+          <section classCode="DOCSECT" moodCode="EVN">
+           <code code="11494-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName=" Initial assessment note"/>
+           <title>評估</title>
+           <text>
+<paragraph>HCVD</paragraph>
+</text>
+</section>
+</component>
+      </section>
+     </component>
+      <!--
+        處置項目
+        ********************************************************
+        Procedure
+        ********************************************************
+      -->
+     <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="29554-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Procedure" />
+          <title>處置項目</title>
+          <text>
+<!--23～30 項次、處置代碼、處置名稱、頻率、數量、單位、頻率及註記 ，若當次門診無開立處置紀錄，則使用”本次門診無開立處置”表示-->
+<table>
+              <thead>
+<tr><td>項次</td><td>處置代碼</td><td>處置名稱</td><td>頻率</td><td>數量</td><td>單位</td><td>部位</td><td>註記</td></tr>
+              </thead>
+              <tbody>
+<tr><td>1</td><td>19009C </td><td>腹部超音波，追蹤性</td><td>一次性處置</td><td>1</td><td>次</td><td>C上腹部</td><td>持續追蹤</td></tr>
+<tr><td>2</td><td>08082C </td><td>全套血液檢查ⅢCBC-III</td><td>一次性處置</td><td>1</td><td>次</td><td>O 其他</td><td>NA</td></tr>
+              </tbody>
+            </table>
+           </text>
+<entry>
+<!--若當次門診無開立處置紀錄，則使用 
+<procedure classCode="PROC" moodCode="RQO" negationInd="true"/>
+-->
+            <procedure classCode="PROC" moodCode="RQO" negationInd="false">
+<!--23 項次-->
+<id extension="1"/>
+<!--24～25 處置代碼、處置名稱-->
+<code code="19009C " codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保檢驗項目代碼" displayName="腹部超音波，追蹤性"/>
+<!--30 註記-->
+<text>持續追蹤</text>
+<!--29 部位-->
+<targetSiteCode code="C " codeSystem="2.16.886.101.20003.20014" codeSystemName="中央健康保險署檢查部位" displayName="上腹部"/>
+			     <precondition typeCode="PRCN">
+<criterion classCode="OBS" moodCode="EVN.CRT">
+<code code="27669-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Visit frequency"/>
+		<!--26 頻率-->
+<text>一次性處置</text>
+<!--27～28數量、單位-->
+<value xsi:type="PQ" value="1" unit="次"/>
+</criterion>
+</precondition>
+            </procedure >
+           </entry>
+           <entry>
+            <procedure classCode="PROC" moodCode="RQO" negationInd="false">              
+<!--23 項次-->
+<id extension="2"/>
+<code code="08082C " codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保檢驗項目代碼" displayName="全套血液檢查ⅢCBC-III "/>
+<!--30 註記-->
+<text>NA</text>
+<!--29 部位-->
+<targetSiteCode code="O " codeSystem="2.16.886.101.20003.20014" codeSystemName="中央健康保險署檢查部位" displayName="其他"/>
+			     <precondition typeCode="PRCN">
+<criterion classCode="OBS" moodCode="EVN.CRT">
+<code code="27669-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Visit frequency"/>
+		<!--26 頻率-->
+<text>一次性處置</text>
+<!--27～28數量、單位-->
+<value xsi:type="PQ" value="1" unit="次"/>
+</criterion>
+</precondition>
+            </procedure >
+           </entry>
+        </section>
+      </component>
+      <!--
+        處方
+        ********************************************************
+        Medication prescribed
+        ********************************************************
+      -->
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <code code="29551-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Medication prescribed" />
+          <title>處方</title>
+          <text>
+            <table>
+	           <thead>
+<tr><td>項次</td><td>處方箋種類註記</td><td>藥品代碼</td><td>藥品商品名稱</td><td>藥品學名</td><td>劑型</td><td>劑量</td><td>劑量單位</td><td>頻率</td><td>給藥途徑</td><td>給藥日數</td><td>給藥總量</td><td>給藥總量單位</td><td>實際給藥總量</td><td>實際給藥總量單位</td><td>磨粉註記</td><td>註記</td></tr>
+	           </thead>
+	           <tbody>
+<tr><td>1</td><td>GENRL</td><td>A040130100</td><td>TINTEN TABLETS 500MG</td><td>ACETAMINOPHEN TAB 500MG (FOIL)</td><td>錠劑</td><td>1</td><td>錠</td><td>每天三次飯後(TID PC)</td><td>口服</td><td>4</td><td>12</td><td>錠</td><td>12</td><td>錠</td><td>N</td><td>力停疼錠500公絲</td></tr>
+<tr><td>2</td><td>GENRL</td><td>A030862157</td><td>COUGH MIXTURE </td><td>PLATYCODON FLUID EXTRACT 20ML SOD CITRATE 1G/100ML 120ML/BTL</td><td>內服液劑</td><td>10</td><td>CC</td><td>需要時使用(PRN)</td><td>口服</td><td>5</td><td>1</td><td>瓶</td><td>1</td><td>瓶</td><td>N</td><td>鎮咳祛痰液</td></tr>
+<tr><td>3</td><td>GENRL</td><td>A042687100</td><td>REGROW SUSTAINED RELEASE F.C. TABLET 60MG &quot;T.T.Y.&quot; </td><td>DEXTROMETHOPHAN HBR 60MG/TAB</td><td>持續性膜衣錠劑</td><td>1</td><td>錠</td><td>睡前使用(HS)</td><td>口服</td><td>5</td><td>5</td><td>錠</td><td>5</td><td>錠</td><td>N</td><td>愛舒可羅持續性膜衣錠60公絲</td></tr>
+<tr><td>4</td><td>GENRL</td><td>A0284531G0</td><td>MUCOSOLVAN TABLETS 30MG</td><td>AMBROXOL 30MG TAB</td><td>錠劑</td><td>1</td><td>錠</td><td>每天三次(TID)</td><td>口服</td><td>5</td><td>15</td><td>錠</td><td>15</td><td>錠</td><td>N</td><td>沐舒痰錠30公絲</td></tr>
+<tr><td>5</td><td>GENRL</td><td>B023792100</td><td>XYZAL FILM-COATED TABLETS 5MG</td><td>LEVOCETIRIZINE 5MG/TAB</td><td>膜衣錠</td><td>1</td><td>錠</td><td>每天一次(QD)</td><td>口服</td><td>5</td><td>5</td><td>錠</td><td>5</td><td>錠</td><td>N</td><td>驅異樂膜衣錠5公絲</td></tr>
+	           </tbody>
+            </table>
+          </text>
+          <!--第一種藥品-->
+		  <entry>
+<substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+			 <!--11. 項次 -->
+			<id extension="1"/>	
+			<!--13. 藥品健保碼 
+                          displayName 為選擇性，可以填健保的藥品名稱 -->	
+<code code="A040130100" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品代碼" displayName="TINTEN TABLETS 500MG"/>
+            <!--27. 註記 -->		
+			<text>力停疼錠500公絲</text>							   
+			  <!--21. 給藥日數-->
+			<repeatNumber value="4"/>
+            <!--20.  給藥途徑-->										
+<routeCode code="PO" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品使用途徑代碼" displayName="口服"/>
+			 <!--17.  劑量, 18. 劑量單位 (每次一錠)
+					若為"適量"，則使用<doseQuantity value="1" unit="適量"/>		
+			-->
+			<doseQuantity value="1" unit="{TABLET}"/>			
+			 <!--16.  劑型-->
+<administrationUnitCode code="TAB" codeSystem="2.16.840.1.113883.5.85" codeSystemName="orderableDrugForm" displayName="Tablet" />
+	  		<consumable>
+				<manufacturedProduct>
+					<manufacturedLabeledDrug>
+				    	<!--14. 藥品商品名 -->
+			    		<name>TINTEN TAB 500MG</name>
+					</manufacturedLabeledDrug>
+				</manufacturedProduct>
+			</consumable>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="RQO">
+		  <!--26.磨粉註記-->
+            <text>N</text>
+            <independentInd value="false"/>
+			<!--24. 實際給藥總量、25. 實際給藥總量單位-->
+             <quantity value="12" unit="{TABLET}"/>
+              <product>
+				<manufacturedProduct>
+					<manufacturedMaterial> 
+                      <!--15. 藥品學名 -->		
+			          <name>ACETAMINOPHEN TAB 500MG (FOIL)</name>
+    				</manufacturedMaterial>
+	       		</manufacturedProduct>
+		      </product>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="PRP">
+<!--12. 處方箋種類註記，一般處方，慢性病處方箋 ，特殊等建議以GENRL：General代表一般處方，CHR：Chronic代表慢性病處方箋，其餘請參考HL7 標準的ActMedicalServiceCode代碼表…-->
+                <code code="GENRL" codeSystem="2.16.840.1.113883.11.17449" codeSystemName="ActMedicalServiceCode" displayName="General(一般處方)" />
+<independentInd value="false"/>
+			<!--22. 給藥總量、23. 給藥總量單位-->
+             <quantity value="12" unit="{TABLET}"/>             
+            </supply>
+         </entryRelationship>
+            <!--19. 頻率 每天三次飯後(TIDPC)-->
+         <entryRelationship typeCode="COMP">
+			<act classCode="ACT" moodCode="EVN" negationInd="false">
+<code code="52810-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Current medication, Frequency"/>
+				<text xsi:type="ST">TIDPC</text>
+			</act>
+		</entryRelationship>
+		</substanceAdministration>
+	  </entry> 
+      <!--第二種藥品-->
+	  <entry typeCode="DRIV">
+<substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+			<id extension="2"/>	
+<code code="A030862157" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品代碼"  displayName="COUGH MIXTURE"/>
+			<text>鎮咳祛痰液</text>						
+			<repeatNumber value="5"/>
+<routeCode code="PO" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品使用途徑代碼" displayName="口服"/>
+			<doseQuantity value="10" unit="CC"></doseQuantity>		
+<administrationUnitCode code="ORALSOL" codeSystem="2.16.840.1.113883.5.85" codeSystemName="orderableDrugForm" displayName="Oral Solution"/>
+			<consumable>
+				<manufacturedProduct>
+					<manufacturedLabeledDrug>
+					  <name>COUGH MIXTURE 120ML/BTL</name>
+					</manufacturedLabeledDrug>
+			      </manufacturedProduct>
+			    </consumable>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="RQO">
+            <text>N</text>
+            <independentInd value="false"/>            
+             <quantity value="1" unit="{BTL}"/>
+              <product>
+				<manufacturedProduct>
+					<manufacturedMaterial> 
+<name>PLATYCODON FLUID EXTRACT 20ML SOD CITRATE 1G/100ML 120ML/BTL</name>
+    				</manufacturedMaterial>
+	       		</manufacturedProduct>
+		      </product>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="PRP">
+<code code="GENRL" codeSystem="2.16.840.1.113883.11.17449" codeSystemName="ActMedicalServiceCode" displayName="General(一般處方)" />
+            <independentInd value="false"/>
+             <quantity value="1" unit="{BTL}"/>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+			<act classCode="ACT" moodCode="EVN" negationInd="false">
+<code code="52810-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Current medication, Frequency"/>
+				<text xsi:type="ST">PRN</text>
+			</act>
+		</entryRelationship>
+	   </substanceAdministration>
+	 </entry>
+    <!--第三種藥品-->
+		   <entry>
+<substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+			<id extension="3"/>	
+<code code="A042687100" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品代碼" displayName="REGROW SUSTAINED RELEASE F.C. TABLET 60MG"/>
+			<text>愛舒可羅持續性膜衣錠60公絲</text>
+			<repeatNumber value="5"/>
+<routeCode code="PO" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品使用途徑代碼" displayName="口服"/>
+			<doseQuantity value="1" unit="{TABLET}"/>		
+<administrationUnitCode code="TAB" codeSystem="2.16.840.1.113883.5.85" codeSystemName="orderableDrugForm" displayName="Tablet" />
+			<consumable>
+				<manufacturedProduct>
+					<manufacturedLabeledDrug>
+			    		<name>REGROW SR 60MG/TAB</name>
+					</manufacturedLabeledDrug>
+			      </manufacturedProduct>
+			    </consumable>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="RQO">
+            <text>N</text>
+            <independentInd value="false"/>            
+             <quantity value="5" unit="{TABLET}"/>
+              <product>
+				<manufacturedProduct>
+					<manufacturedMaterial> 
+			          <name>DEXTROMETHOPHAN HBR 60MG/TAB</name>	
+    				</manufacturedMaterial>
+	       		</manufacturedProduct>
+		      </product>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="PRP">
+<code code="GENRL" codeSystem="2.16.840.1.113883.11.17449" codeSystemName="ActMedicalServiceCode" displayName="General(一般處方)" />
+            <independentInd value="false"/>
+             <quantity value="5" unit="{TABLET}"/>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+			<act classCode="ACT" moodCode="EVN" negationInd="false">
+<code code="52810-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Current medication, Frequency"/>
+				<text xsi:type="ST">HS</text>
+			</act>
+		</entryRelationship>
+	     </substanceAdministration>
+       </entry> 
+    <!--第四種藥品-->
+		   <entry>
+<substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+			<id extension="4"/>					
+<code code="A0284531G0" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品代碼" displayName="MUCOSOLVAN TABLETS 30MG"/>
+			<text>沐舒痰錠30公絲</text>
+			<repeatNumber value="5"/>
+<routeCode code="PO" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品使用途徑代碼" displayName="口服"/>
+			<doseQuantity value="1" unit="{TABLET}"/>		
+<administrationUnitCode code="TAB" codeSystem="2.16.840.1.113883.5.85" codeSystemName="orderableDrugForm" displayName="Tablet" />
+			<consumable>
+				<manufacturedProduct>
+					<manufacturedLabeledDrug>
+			    		<name>MUCOSOLVAN TAB 30MG</name>
+					</manufacturedLabeledDrug>
+			      </manufacturedProduct>
+			    </consumable>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="RQO">
+            <text>N</text>
+            <independentInd value="false"/>            
+             <quantity value="15" unit="{TABLET}"/>
+              <product>
+				<manufacturedProduct>
+					<manufacturedMaterial> 
+			          <name>AMBROXOL 30MG TAB</name>
+    				</manufacturedMaterial>
+	       		</manufacturedProduct>
+		      </product>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="PRP">
+<code code="GENRL" codeSystem="2.16.840.1.113883.11.17449" codeSystemName="ActMedicalServiceCode" displayName="General(一般處方)" />
+            <independentInd value="false"/>
+             <quantity value="15" unit="{TABLET}"/>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+			<act classCode="ACT" moodCode="EVN" negationInd="false">
+<code code="52810-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Current medication, Frequency"/>
+				<text xsi:type="ST">TID</text>
+			</act>
+		</entryRelationship>
+		     </substanceAdministration>
+	       </entry>
+    <!--第五種藥品-->
+		   <entry>
+<substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+			<id extension="5"/>			
+<code code="B023792100" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品代碼" displayName="XYZAL FILM-COATED TABLETS 5MG"/>
+			<text>驅異樂膜衣錠5公絲</text>
+			<repeatNumber value="5"/>
+<routeCode code="PO" codeSystem="2.16.886.101.20003.20014" codeSystemName="全民健保藥品使用途徑代碼" displayName="口服"/>
+			<doseQuantity value="1" unit="{TABLET}"/>		
+<administrationUnitCode code="TAB" codeSystem="2.16.840.1.113883.5.85" codeSystemName="orderableDrugForm" displayName="Tablet" />
+			<consumable>
+				<manufacturedProduct>
+					<manufacturedLabeledDrug>
+			    		<name>XYZAL FILM-COATED TABLETS 5MG</name>
+					</manufacturedLabeledDrug>
+			      </manufacturedProduct>
+			    </consumable>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="RQO">
+            <text>N</text>
+            <independentInd value="false"/>            
+             <quantity value="5" unit="{TABLET}"/>
+              <product>
+				<manufacturedProduct>
+					<manufacturedMaterial> 
+			          <name>LEVOCETIRIZINE 5MG/TAB</name>
+    				</manufacturedMaterial>
+	       		</manufacturedProduct>
+		      </product>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+            <supply classCode="SPLY" moodCode="PRP">
+<code code="GENRL" codeSystem="2.16.840.1.113883.11.17449" codeSystemName="ActMedicalServiceCode" displayName="General(一般處方)" />
+            <independentInd value="false"/>
+             <quantity value="5" unit="{TABLET}"/>
+            </supply>
+         </entryRelationship>
+         <entryRelationship typeCode="COMP">
+			<act classCode="ACT" moodCode="EVN" negationInd="false">
+<code code="52810-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Current medication, Frequency"/>
+				<text xsi:type="ST">QD</text>
+			</act>
+		</entryRelationship>
+		     </substanceAdministration>
+	       </entry>	       
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

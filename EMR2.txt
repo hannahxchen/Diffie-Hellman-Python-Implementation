@@ -1,0 +1,24 @@
+<ReferralData >
+<ChartNo>012345678</ChartNo>
+<PatientName>王小明</PatientName>
+<HealthcareCardID>A123456789
+</HealthcareCardID>
+    <Birthday>1970/03/20</Birthday>
+    <sex>M</Sex>
+<ElectricalPatientRecord1>
+ <symptom> 一位33歲男性病患抱怨右下腹疼痛，……</symptom>  
+<diagnosis>要求進一步檢查</diagnosis> 
+<Reporter>王家祥醫師</Reporter>
+<ReportTime>93/04/20 08:30 </ReportTime>
+<Signature> UECBMGRHVibGluM...
+</Signature>
+</ElectricalPatientRecord1>
+<ElectricalPatientRecord2>
+<symptom>一位33歲男性病患抱怨右下腹疼痛，經過UltraSound檢查右下腹有1 cm寬*0.5 cm高的囊狀物，疑是…</symptom>
+<diagnosis>要求進一步檢查</diagnosis>
+<Reporter>李輝煌醫師</Reporter>
+<ReportTime>93/04/21 17:30 </ReportTime>
+<Signature> UECBMHVibGluM...
+</Signature>
+</ElectricalPatientRecord2>
+</ReferralData>
